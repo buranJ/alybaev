@@ -1,69 +1,65 @@
+import { z } from 'zod';
+
 /**
- * Единственный источник правды по контактам и идентичности проекта.
- *
- * ВНИМАНИЕ: значения ниже — заглушки. Бриф не был получен, реальные контакты
- * выдумывать нельзя. Заменить перед первым деплоем; форма и типы финальные.
+ * Брендированный телефон: строку в E.164 нельзя перепутать с отображаемой.
+ * Бренд навешивает zod — обошлись без `as`.
  */
+const phoneE164Schema = z
+  .string()
+  .regex(/^\+[1-9]\d{7,14}$/, 'Телефон должен быть в формате E.164')
+  .brand<'PhoneE164'>();
 
-export interface SiteGeo {
-  readonly lat: number;
-  readonly lng: number;
-}
+export type PhoneE164 = z.infer<typeof phoneE164Schema>;
 
-export interface SiteAddress {
-  readonly country: string;
-  readonly city: string;
-  readonly street: string;
-  readonly postalCode: string;
-  /** Готовая строка для вывода одной строкой. */
-  readonly full: string;
-}
-
-export interface SitePhone {
-  /** Строго E.164: «+» и цифры, без пробелов и скобок. */
-  readonly e164: `+${number}`;
-  /** Человекочитаемый вид для вёрстки. */
-  readonly display: string;
-}
-
-export interface SiteConfig {
-  readonly name: string;
-  readonly shortName: string;
-  readonly description: string;
+const siteSchema = z.object({
+  name: z.string().min(2),
+  shortName: z.string().min(2),
+  role: z.string().min(2),
+  description: z.string().min(20),
   /** Канонический домен, без слеша на конце. */
-  readonly url: string;
-  readonly locale: string;
-  readonly phone: SitePhone;
-  readonly whatsapp: string;
-  readonly instagram: string;
-  readonly address: SiteAddress;
-  readonly geo: SiteGeo;
-}
+  url: z.url(),
+  locale: z.string(),
+  phone: z.object({
+    e164: phoneE164Schema,
+    display: z.string(),
+  }),
+  whatsapp: z.url(),
+  instagram: z.url(),
+  instagramHandle: z.string().startsWith('@'),
+  address: z.object({
+    country: z.string(),
+    city: z.string(),
+    street: z.string(),
+    full: z.string(),
+  }),
+  /** TODO(клиент): уточнить точку по 2ГИС — сейчас центр Бишкека. */
+  geo: z.object({ lat: z.number(), lng: z.number() }),
+});
 
-// TODO(бриф): заменить на реальные данные.
-const PHONE_E164 = '+70000000000' as const;
+export type SiteConfig = z.infer<typeof siteSchema>;
 
-export const siteConfig: SiteConfig = {
-  name: 'PROJECT_NAME',
-  shortName: 'PROJECT',
-  description: 'TODO: описание проекта из брифа.',
-  url: 'https://example.com',
+const raw = {
+  name: 'Урмат Алыбаев',
+  shortName: 'Алыбаев',
+  role: 'пластический хирург',
+  description:
+    'Пластический хирург в Бишкеке. Верхняя и нижняя блефаропластика, отопластика. 5+ лет практики, более 3000 операций.',
+  url: 'https://alybaev.com',
   locale: 'ru_RU',
   phone: {
-    e164: PHONE_E164,
-    display: '+7 000 000-00-00',
+    e164: '+996700977277',
+    display: '+996 700 977 277',
   },
-  whatsapp: `https://wa.me/${PHONE_E164.replace('+', '')}`,
-  instagram: 'https://instagram.com/PROJECT_HANDLE',
+  whatsapp: 'https://wa.me/996700977277',
+  instagram: 'https://instagram.com/dr.alybaev',
+  instagramHandle: '@dr.alybaev',
   address: {
-    country: 'RU',
-    city: 'TODO',
-    street: 'TODO',
-    postalCode: '000000',
-    full: 'TODO: адрес из брифа',
+    country: 'KG',
+    city: 'Бишкек',
+    street: 'ул. Насирдина Исанова, 118',
+    full: 'Бишкек, ул. Насирдина Исанова, 118',
   },
-  geo: {
-    lat: 0,
-    lng: 0,
-  },
-};
+  geo: { lat: 42.8746, lng: 74.5698 },
+} satisfies z.input<typeof siteSchema>;
+
+export const siteConfig: SiteConfig = siteSchema.parse(raw);

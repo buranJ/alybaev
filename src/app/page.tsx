@@ -1,9 +1,25 @@
-import { siteConfig } from '@/shared/config/site';
+import {
+  Hero,
+  HeroBento,
+  HeroEditorial,
+  HeroJournal,
+  HeroManifesto,
+  HeroPoster,
+} from '@/widgets/hero';
+import { SiteHeader } from '@/widgets/site-header';
 
 export default function HomePage() {
   return (
-    <main>
-      <h1>{siteConfig.name}</h1>
-    </main>
+    <>
+      <SiteHeader />
+      <main id="main-content">
+        <Hero />
+        <HeroEditorial />
+        <HeroJournal />
+        <HeroBento />
+        <HeroManifesto />
+        <HeroPoster />
+      </main>
+    </>
   );
 }
