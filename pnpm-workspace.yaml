@@ -1,0 +1,3 @@
+allowBuilds:
+  # Нативный резолвер импортов, тянется через eslint-config-next.
+  unrs-resolver: true
