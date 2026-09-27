@@ -75,7 +75,9 @@ export function HeroSignature() {
               src={image.src}
               alt={image.alt}
               fill
-              priority
+              loading="eager"
+              fetchPriority="high"
+              quality={65}
               sizes="(min-width: 1024px) 66vw, 100vw"
               className="origin-bottom scale-[1.12] object-contain object-bottom pt-10 sm:scale-100 sm:pt-8 lg:pt-10"
             />

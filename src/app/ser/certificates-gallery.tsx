@@ -6,6 +6,8 @@ import { homeContent } from '@/content/home';
 function CertificateDocument({ index }: { index: number }) {
   const certificate = homeContent.certificates[index];
 
+  if (!certificate) return null;
+
   return (
     <a
       href={certificate.src}
@@ -18,7 +20,10 @@ function CertificateDocument({ index }: { index: number }) {
         src={certificate.src}
         alt={certificate.alt}
         fill
-        sizes="(min-width: 1024px) 46vw, (min-width: 640px) 70vw, 100vw"
+        loading={index === 0 ? 'eager' : 'lazy'}
+        fetchPriority={index === 0 ? 'high' : 'auto'}
+        quality={65}
+        sizes="(min-width: 1024px) 46vw, (min-width: 640px) 70vw, calc(100vw - 6rem)"
         className="object-contain p-3 transition-transform duration-(--duration-slow) group-hover:scale-[1.015] sm:p-5"
       />
       <span className="absolute bottom-3 right-3 grid size-10 place-items-center rounded-full border border-border bg-surface text-text-strong opacity-0 transition-opacity duration-(--duration-base) group-hover:opacity-100 sm:bottom-5 sm:right-5">

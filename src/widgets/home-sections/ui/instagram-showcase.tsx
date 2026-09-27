@@ -43,7 +43,7 @@ function InstagramLink({ inverse = false }: { readonly inverse?: boolean }) {
 
 function ImageLink({ src, alt, label, className, sizes, compactLabel = false }: { readonly src: string; readonly alt: string; readonly label: string; readonly className: string; readonly sizes: string; readonly compactLabel?: boolean }) {
   return (
-    <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="Открыть профиль Урмата Алыбаева в Instagram" className={`group relative overflow-hidden bg-surface-muted ${className}`}>
+    <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label={`${label} — открыть профиль Урмата Алыбаева в Instagram`} className={`group relative overflow-hidden bg-surface-muted ${className}`}>
       <Image src={src} alt={alt} fill sizes={sizes} className="object-cover transition-transform duration-(--duration-slow) group-hover:scale-[1.025]" />
       <span className={`absolute rounded-full bg-text-strong/80 text-on-dark backdrop-blur-sm ${compactLabel ? 'right-2 bottom-2 left-2 px-2 py-1.5 text-center text-[0.625rem] leading-none tracking-[0.06em] whitespace-nowrap uppercase' : 'bottom-3 left-3 px-3 py-1.5 type-eyebrow'}`}>
         {label}

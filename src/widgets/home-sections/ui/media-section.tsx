@@ -37,7 +37,6 @@ export function MediaSection() {
               target="_blank"
               rel="noreferrer"
               className="group relative block aspect-video overflow-hidden lg:min-h-[31rem]"
-              aria-label="Смотреть видео с Урматом Алыбаевым на YouTube"
             >
               <Image src="/images/doctor-video.jpg" alt="Урмат Алыбаев в видеоинтервью" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover transition-transform duration-(--duration-slow) group-hover:scale-[1.02]" />
               <div className="absolute inset-0 bg-linear-to-t from-text-strong/70 via-text-strong/5 to-transparent" />
