@@ -1,0 +1,10 @@
+export { AboutSection } from './ui/about-section';
+export { CertificatesSection } from './ui/certificates-section';
+export { ContactSection } from './ui/contact-section';
+export { FaqSection } from './ui/faq-section';
+export { MediaSection } from './ui/media-section';
+export { MobileBookingBar } from './ui/mobile-booking-bar';
+export { RecoverySection } from './ui/recovery-section';
+export { ResultsSection } from './ui/results-section';
+export { ServicesSection } from './ui/services-section';
+export { SiteFooter } from './ui/site-footer';

@@ -1,11 +1,16 @@
+import { HeroSignature } from '@/widgets/hero';
 import {
-  Hero,
-  HeroBento,
-  HeroEditorial,
-  HeroJournal,
-  HeroManifesto,
-  HeroPoster,
-} from '@/widgets/hero';
+  AboutSection,
+  CertificatesSection,
+  ContactSection,
+  FaqSection,
+  MediaSection,
+  MobileBookingBar,
+  RecoverySection,
+  ResultsSection,
+  ServicesSection,
+  SiteFooter,
+} from '@/widgets/home-sections';
 import { SiteHeader } from '@/widgets/site-header';
 
 export default function HomePage() {
@@ -13,13 +18,18 @@ export default function HomePage() {
     <>
       <SiteHeader />
       <main id="main-content">
-        <Hero />
-        <HeroEditorial />
-        <HeroJournal />
-        <HeroBento />
-        <HeroManifesto />
-        <HeroPoster />
+        <HeroSignature />
+        <AboutSection />
+        <ServicesSection />
+        <ResultsSection />
+        <MediaSection />
+        <CertificatesSection />
+        <RecoverySection />
+        <FaqSection />
+        <ContactSection />
       </main>
+      <MobileBookingBar />
+      <SiteFooter />
     </>
   );
 }
