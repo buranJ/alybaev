@@ -7,7 +7,7 @@ export function FaqSection() {
   const { faq, preparation } = homeContent;
 
   return (
-    <section className="bg-surface-muted py-(--spacing-section)" aria-labelledby="faq-title">
+    <section id="faq" className="scroll-mt-24 bg-surface-muted py-(--spacing-section)" aria-labelledby="faq-title">
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-4 lg:self-start lg:sticky lg:top-32">

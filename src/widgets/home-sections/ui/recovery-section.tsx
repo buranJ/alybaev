@@ -18,7 +18,7 @@ const importantNotes = [
 
 export function RecoverySection() {
   return (
-    <section id="recovery" className="scroll-mt-24 overflow-hidden bg-surface-muted py-(--spacing-section)" aria-labelledby="recovery-title">
+    <section id="recovery" className="scroll-mt-24 overflow-hidden border-t border-border-strong bg-surface py-(--spacing-section)" aria-labelledby="recovery-title">
       <Container>
         <div>
           <p className="type-eyebrow text-accent">Восстановление</p>

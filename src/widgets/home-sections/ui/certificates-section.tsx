@@ -9,7 +9,7 @@ export function CertificatesSection() {
   const preview = homeContent.certificates.slice(0, 4);
 
   return (
-    <section className="overflow-hidden bg-surface-muted py-(--spacing-section)" aria-labelledby="certificates-title">
+    <section id="education" className="scroll-mt-24 overflow-hidden bg-surface-muted py-(--spacing-section)" aria-labelledby="certificates-title">
       <Container>
         <div className="max-w-3xl text-left sm:mx-auto sm:text-center">
           <p className="type-eyebrow text-accent">Образование</p>
@@ -21,20 +21,19 @@ export function CertificatesSection() {
           </p>
         </div>
 
-        <div className="relative mt-12 h-[26rem] sm:hidden">
-          {preview.slice(0, 3).map((certificate, index) => (
+        <div className="relative mt-12 h-[18rem] sm:hidden">
+          {preview.slice(0, 2).map((certificate, index) => (
             <a
               key={certificate.src}
               href={certificate.src}
               target="_blank"
               rel="noreferrer"
-              className={`absolute overflow-hidden border border-border bg-surface shadow-card ${certificate.orientation === 'portrait' ? 'aspect-[3/4]' : 'aspect-[4/3]'} ${index === 0 ? 'top-8 left-0 z-30 w-[78%] -rotate-3' : ''} ${index === 1 ? 'top-0 right-0 z-10 w-[66%] rotate-6' : ''} ${index === 2 ? 'right-3 bottom-0 z-20 w-[58%] rotate-2' : ''}`}
+              className={`absolute aspect-[4/3] overflow-hidden border border-border bg-surface shadow-card ${index === 0 ? 'top-0 left-0 z-10 w-[74%] -rotate-5' : 'top-8 right-0 z-20 w-[86%] rotate-2'}`}
               aria-label={`Открыть: ${certificate.alt}`}
             >
               <Image src={certificate.src} alt={certificate.alt} fill sizes="78vw" className="object-contain p-3" />
             </a>
           ))}
-          <p className="absolute bottom-3 left-0 z-40 max-w-[11ch] type-eyebrow text-accent">Документы из архива врача</p>
         </div>
 
         <div className="mt-14 hidden items-center gap-4 overflow-x-auto pt-5 pb-8 sm:-mx-8 sm:flex sm:px-8 lg:mx-auto lg:max-w-5xl lg:justify-center lg:gap-0 lg:overflow-visible lg:px-0 lg:py-10">
@@ -58,8 +57,8 @@ export function CertificatesSection() {
           ))}
         </div>
 
-        <div className="mt-4 flex justify-center">
-          <Link href="/ser" className={buttonVariants({ variant: 'outline', size: 'lg' })}>
+        <div className="relative z-30 mt-6 flex justify-center">
+          <Link href="/ser#main-content" className={buttonVariants({ variant: 'outline', size: 'lg' })}>
             Открыть всю галерею
             <ArrowUpRight aria-hidden="true" className="size-4" />
           </Link>
