@@ -6,11 +6,21 @@ import { buttonVariants } from '@/shared/ui';
 const instagramUrl = 'https://instagram.com/dr.alybaev';
 
 const instagramImages = [
-  { src: '/images/instagram-portrait-v3.png', alt: 'Редакционный портрет женщины в клинике', label: 'Консультация' },
+  { src: '/images/urmat-consultation.png', alt: 'Пластический хирург Урмат Алыбаев во время консультации', label: 'Доктор' },
   { src: '/images/instagram-anatomy-v2.png', alt: 'Анатомическое исследование области век', label: 'Планирование' },
   { src: '/images/instagram-profile-v3.png', alt: 'Профиль женщины с естественными чертами', label: 'Пропорции' },
   { src: '/images/instagram-preparation-v2.png', alt: 'Подготовка хирургических инструментов', label: 'Подготовка' },
 ] as const;
+
+function InstagramIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-4">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 function InstagramLink({ inverse = false }: { readonly inverse?: boolean }) {
   return (
@@ -21,20 +31,21 @@ function InstagramLink({ inverse = false }: { readonly inverse?: boolean }) {
       className={buttonVariants({
         variant: 'outline',
         size: 'lg',
-        className: inverse ? 'w-fit border-on-dark/30 bg-on-dark text-text-strong hover:bg-accent-soft' : 'w-fit',
+        className: inverse ? 'w-fit border-accent bg-accent text-on-dark hover:border-accent-line hover:bg-accent-line' : 'w-fit',
       })}
     >
-      Открыть @dr.alybaev
+      <InstagramIcon />
+      Открыть Instagram
       <ArrowUpRight aria-hidden="true" className="size-4" />
     </a>
   );
 }
 
-function ImageLink({ src, alt, label, className, sizes }: { readonly src: string; readonly alt: string; readonly label: string; readonly className: string; readonly sizes: string }) {
+function ImageLink({ src, alt, label, className, sizes, compactLabel = false }: { readonly src: string; readonly alt: string; readonly label: string; readonly className: string; readonly sizes: string; readonly compactLabel?: boolean }) {
   return (
     <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="Открыть профиль Урмата Алыбаева в Instagram" className={`group relative overflow-hidden bg-surface-muted ${className}`}>
       <Image src={src} alt={alt} fill sizes={sizes} className="object-cover transition-transform duration-(--duration-slow) group-hover:scale-[1.025]" />
-      <span className="absolute bottom-3 left-3 rounded-full bg-text-strong/75 px-3 py-1.5 type-eyebrow text-on-dark backdrop-blur-sm">
+      <span className={`absolute rounded-full bg-text-strong/80 text-on-dark backdrop-blur-sm ${compactLabel ? 'right-2 bottom-2 left-2 px-2 py-1.5 text-center text-[0.625rem] leading-none tracking-[0.06em] whitespace-nowrap uppercase' : 'bottom-3 left-3 px-3 py-1.5 type-eyebrow'}`}>
         {label}
       </span>
     </a>
@@ -48,9 +59,9 @@ export function InstagramShowcase() {
         <Image src={instagramImages[0].src} alt={instagramImages[0].alt} fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-linear-to-t from-text-strong via-text-strong/15 to-transparent" />
 
-        <div className="absolute top-5 right-5 grid w-28 gap-2">
+        <div className="absolute top-5 right-5 grid w-32 gap-2">
           {instagramImages.slice(1, 3).map((image) => (
-            <ImageLink key={image.src} {...image} sizes="7rem" className="aspect-square rounded-[var(--radius-md)] border border-on-dark/40" />
+            <ImageLink key={image.src} {...image} compactLabel sizes="8rem" className="aspect-[4/3] rounded-[var(--radius-md)] border border-on-dark/40" />
           ))}
         </div>
 

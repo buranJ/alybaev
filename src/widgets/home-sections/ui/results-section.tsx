@@ -4,7 +4,7 @@ import { homeContent } from '@/content/home';
 import { Container, buttonVariants } from '@/shared/ui';
 
 import { ResultsSlider } from './results-slider';
-import { ReviewsSlider } from './reviews-slider';
+import { ReviewsSection } from './reviews-section';
 
 export function ResultsSection() {
   return (
@@ -27,17 +27,7 @@ export function ResultsSection() {
         </Container>
       </section>
 
-      <section id="reviews" className="scroll-mt-24 overflow-hidden bg-text-strong py-(--spacing-section) text-on-dark" aria-labelledby="reviews-title">
-        <Container>
-          <div>
-            <p className="type-eyebrow text-on-dark/50">Отзывы</p>
-            <h2 id="reviews-title" className="mt-6 font-display text-display-lg font-light text-on-dark">Говорят пациенты</h2>
-          </div>
-          <div className="mt-14">
-            <ReviewsSlider />
-          </div>
-        </Container>
-      </section>
+      <ReviewsSection />
     </>
   );
 }
