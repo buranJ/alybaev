@@ -34,10 +34,6 @@ export function AboutSection() {
           <div className="relative min-h-[36rem] lg:col-span-5 lg:min-h-[46rem]">
             <div className="absolute top-0 right-0 h-[86%] w-[92%] overflow-hidden rounded-[var(--radius-xl)] bg-accent-soft">
               <Image src="/images/urmat-consultation.png" alt="Урмат Алыбаев во время консультации" fill sizes="(min-width: 1024px) 38vw, 92vw" className="object-cover" />
-              <div className="absolute inset-x-0 top-0 flex items-center justify-between bg-linear-to-b from-text-strong/45 to-transparent p-6 text-on-dark sm:p-8">
-                <span className="type-eyebrow text-on-dark/70">Консультация</span>
-                <span className="type-eyebrow text-on-dark/70">Бишкек</span>
-              </div>
             </div>
             <div className="absolute bottom-0 left-0 w-[68%] rounded-[var(--radius-lg)] border border-accent-line/40 bg-accent-soft p-7 text-text-strong shadow-float sm:p-9">
               <p className="type-eyebrow text-accent">Принцип работы</p>

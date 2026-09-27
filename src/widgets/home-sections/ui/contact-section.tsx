@@ -29,9 +29,15 @@ export function ContactSection() {
         <div id="booking" className="scroll-mt-24 border-y border-border">
           <div className="grid gap-10 py-12 sm:py-16 lg:grid-cols-12 lg:items-end lg:gap-8">
             <div className="lg:col-span-7">
-              <Eyebrow className="text-accent">Очный приём в Бишкеке</Eyebrow>
-              <h2 id="contact-title" className="mt-6 max-w-[11ch] font-display text-display-lg font-light text-text-strong">
-                Начнём с личного разговора
+              <Eyebrow showDot={false} className="text-accent">
+                Очный приём в Бишкеке
+              </Eyebrow>
+              <h2 id="contact-title" className="mt-6 font-display text-display-lg font-light text-text-strong sm:max-w-[11ch]">
+                <span className="sm:hidden">
+                  <span className="block whitespace-nowrap">Начнём с личного</span>
+                  <span className="block">разговора</span>
+                </span>
+                <span className="hidden sm:inline">Начнём с личного разговора</span>
               </h2>
             </div>
             <div className="lg:col-span-5">

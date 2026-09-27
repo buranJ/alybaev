@@ -20,8 +20,9 @@ export function HeroSignature() {
             <article className="col-span-2 flex flex-col rounded-[var(--radius-xl)] border border-border bg-surface p-6 lg:min-h-[18rem] lg:p-8">
               <p className="type-eyebrow text-text-muted">Принцип работы</p>
 
-              <blockquote className="mt-8 max-w-[18ch] font-accent text-quote text-text-strong italic lg:mt-12">
-                «Сохранить узнаваемость важнее, чем следовать идеалу»
+              <blockquote className="mt-8 font-accent text-quote text-text-strong italic sm:max-w-[18ch] lg:mt-12">
+                <span className="block sm:inline">«Сохранить узнаваемость важнее, </span>
+                <span className="block sm:inline">чем следовать идеалу»</span>
               </blockquote>
               <p className="mt-5 text-caption text-text-muted lg:mt-6">Очная консультация перед операцией</p>
             </article>
@@ -29,10 +30,10 @@ export function HeroSignature() {
             {stats.slice(0, 2).map((stat) => (
               <div
                 key={stat.label}
-                className="flex min-h-36 flex-col rounded-[var(--radius-lg)] bg-surface-muted p-5 sm:min-h-40 sm:p-6"
+                className="flex min-h-28 flex-col rounded-[var(--radius-lg)] bg-surface-muted p-4 sm:min-h-40 sm:p-6"
               >
                 <p className="font-display text-heading-1 font-light text-text-strong">{stat.value}</p>
-                <p className="mt-auto max-w-28 pt-6 text-caption text-text-muted">{stat.label}</p>
+                <p className="mt-auto max-w-28 pt-3 text-caption text-text-muted sm:pt-6">{stat.label}</p>
               </div>
             ))}
 
