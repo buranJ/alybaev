@@ -6,6 +6,7 @@ import { Eyebrow } from './eyebrow';
 
 export type SectionHeadingProps = ComponentPropsWithoutRef<'div'> & {
   eyebrow: string;
+  eyebrowShowDot?: boolean;
   title: string;
   description?: string;
   align?: 'left' | 'center';
@@ -13,6 +14,7 @@ export type SectionHeadingProps = ComponentPropsWithoutRef<'div'> & {
 
 export function SectionHeading({
   eyebrow,
+  eyebrowShowDot = true,
   title,
   description,
   align = 'left',
@@ -21,7 +23,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn(align === 'center' && 'mx-auto text-center', className)} {...props}>
-      <Eyebrow>{eyebrow}</Eyebrow>
+      <Eyebrow showDot={eyebrowShowDot}>{eyebrow}</Eyebrow>
       <h2 className="mt-5 max-w-[17ch] font-display text-display-lg font-light text-text-strong">
         {title}
       </h2>

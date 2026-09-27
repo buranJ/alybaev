@@ -11,7 +11,12 @@ export function FaqSection() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-4 lg:self-start lg:sticky lg:top-32">
-            <SectionHeading id="faq-title" eyebrow="FAQ" title="Коротко о важном перед консультацией" />
+            <SectionHeading
+              id="faq-title"
+              eyebrow="FAQ"
+              eyebrowShowDot={false}
+              title="Коротко о важном перед консультацией"
+            />
             <p className="mt-7 max-w-[38ch] text-body text-text-muted">
               Здесь собраны ответы на частые вопросы. Индивидуальные рекомендации врач даёт только после осмотра.
             </p>
