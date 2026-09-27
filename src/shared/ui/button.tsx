@@ -16,10 +16,10 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-text-strong text-on-dark hover:bg-accent',
-        accent: 'bg-accent text-on-dark hover:bg-text-strong',
-        outline: 'border border-border-strong text-text-strong hover:border-text-strong hover:bg-surface',
-        ghost: 'text-text-strong hover:bg-surface-muted',
+        primary: 'bg-accent text-on-dark hover:bg-accent-line',
+        accent: 'bg-accent text-on-dark hover:bg-accent-line',
+        outline: 'border border-accent/30 bg-accent text-on-dark hover:border-accent-line hover:bg-accent-line',
+        ghost: 'text-accent hover:bg-accent-soft hover:text-text-strong',
       },
       /* md и lg держат touch-таргет ≥ 44px из §7. */
       size: {

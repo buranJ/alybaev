@@ -1,14 +1,17 @@
 import type { NavDesktopProps } from '../model/types';
 
 export function NavDesktop({ items }: NavDesktopProps) {
+  const visibleIds = new Set(['doctor', 'services', 'results', 'reviews', 'education', 'contacts']);
+  const visibleItems = items.filter((item) => visibleIds.has(item.id));
+
   return (
-    <nav aria-label="Основная навигация" className="hidden 2xl:block">
-      <ul className="flex items-center gap-7">
-        {items.map((item) => (
-          <li key={item.id}>
+    <nav aria-label="Основная навигация" className="hidden w-[44rem] 2xl:block">
+      <ul className="grid w-full grid-cols-6 items-center whitespace-nowrap">
+        {visibleItems.map((item) => (
+          <li key={item.id} className="text-center">
             <a
               href={item.href}
-              className="group relative inline-block py-1 text-body-sm text-text transition-colors duration-(--duration-fast) hover:text-text-strong"
+              className="group relative inline-block py-2 text-body-sm text-text transition-colors duration-(--duration-fast) hover:text-text-strong"
             >
               {item.label}
               <span

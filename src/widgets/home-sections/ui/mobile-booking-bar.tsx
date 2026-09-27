@@ -30,7 +30,7 @@ export function MobileBookingBar() {
         <span className="size-2 rounded-full bg-accent-line" />
         Приём в Бишкеке
       </span>
-      <a href={`${siteConfig.whatsapp}?text=${message}`} target="_blank" rel="noreferrer" className="inline-flex h-11 items-center gap-2 rounded-full bg-on-dark px-5 text-body-sm font-medium text-text-strong transition-colors hover:bg-accent-soft">
+      <a href={`${siteConfig.whatsapp}?text=${message}`} target="_blank" rel="noreferrer" className="inline-flex h-11 items-center gap-2 rounded-full bg-accent px-5 text-body-sm font-medium text-on-dark transition-colors hover:bg-accent-line">
         <MessageCircle aria-hidden="true" className="size-4" /> Записаться
       </a>
     </div>

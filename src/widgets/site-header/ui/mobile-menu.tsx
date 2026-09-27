@@ -1,10 +1,10 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import { Menu, X } from 'lucide-react';
+import { Menu, MessageCircle, X } from 'lucide-react';
 
 import { siteConfig } from '@/shared/config/site';
-import { ArrowUpRight, buttonVariants, Eyebrow } from '@/shared/ui';
+import { ArrowUpRight, BrandLogo, buttonVariants } from '@/shared/ui';
 
 import type { MobileMenuProps } from '../model/types';
 
@@ -12,7 +12,17 @@ import type { MobileMenuProps } from '../model/types';
  * Radix Dialog взят ради фокус-трапа, Esc и блокировки скролла — писать это
  * руками означало бы хуже повторить уже проверенное поведение.
  */
-export function MobileMenu({ items, brand, cta, eyebrow }: MobileMenuProps) {
+function InstagramIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-4">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function MobileMenu({ items, cta }: MobileMenuProps) {
   return (
     <Dialog.Root>
       <Dialog.Trigger
@@ -30,12 +40,7 @@ export function MobileMenu({ items, brand, cta, eyebrow }: MobileMenuProps) {
           <Dialog.Title className="sr-only">Меню сайта</Dialog.Title>
 
           <div className="flex h-(--spacing-header) shrink-0 items-center justify-between">
-            <span
-              aria-hidden="true"
-              className="grid size-10 place-items-center rounded-full border border-border-strong font-mono text-caption text-text-strong"
-            >
-              {brand.monogram}
-            </span>
+            <BrandLogo />
             <Dialog.Close
               aria-label="Закрыть меню"
               className="-mr-3 grid size-11 place-items-center rounded-full text-text-strong transition-colors duration-(--duration-fast) hover:bg-surface-muted"
@@ -44,9 +49,7 @@ export function MobileMenu({ items, brand, cta, eyebrow }: MobileMenuProps) {
             </Dialog.Close>
           </div>
 
-          <Eyebrow className="mt-6">{eyebrow}</Eyebrow>
-
-          <ul className="mt-6 border-t border-border">
+          <ul className="mt-5 border-t border-border">
             {items.map((item) => (
               <li key={item.id} className="border-b border-border">
                 <Dialog.Close asChild>
@@ -72,6 +75,27 @@ export function MobileMenu({ items, brand, cta, eyebrow }: MobileMenuProps) {
                 <ArrowUpRight className="transition-transform duration-(--duration-fast) group-hover:rotate-45" />
               </a>
             </Dialog.Close>
+
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              <a
+                href={siteConfig.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-3 text-body-sm text-text-strong transition-colors hover:border-accent hover:text-accent"
+              >
+                <MessageCircle aria-hidden="true" className="size-4" />
+                WhatsApp
+              </a>
+              <a
+                href={siteConfig.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 rounded-full border border-border px-4 py-3 text-body-sm text-text-strong transition-colors hover:border-accent hover:text-accent"
+              >
+                <InstagramIcon />
+                Instagram
+              </a>
+            </div>
 
             <a
               href={`tel:${siteConfig.phone.e164}`}

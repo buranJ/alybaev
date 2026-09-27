@@ -15,8 +15,7 @@ const headerSchema = z.object({
     name: z.string().min(2),
     role: z.string().min(2),
   }),
-  /** Ровно четыре — больше шапка не держит без каши. */
-  nav: z.array(navItemSchema).length(4),
+  nav: z.array(navItemSchema).length(8),
   cta: z.object({
     label: z.string().min(2),
     labelShort: z.string().min(2),
@@ -35,9 +34,13 @@ const raw = {
     role: siteConfig.role,
   },
   nav: [
-    { id: 'services', label: 'Услуги', href: '/#services' },
+    { id: 'doctor', label: 'О враче', href: '/#doctor' },
+    { id: 'services', label: 'Направления', href: '/#services' },
     { id: 'results', label: 'Результаты', href: '/#results' },
-    { id: 'doctor', label: 'Врач', href: '/#doctor' },
+    { id: 'reviews', label: 'Отзывы', href: '/#reviews' },
+    { id: 'education', label: 'Образование', href: '/#education' },
+    { id: 'recovery', label: 'Восстановление', href: '/#recovery' },
+    { id: 'faq', label: 'FAQ', href: '/#faq' },
     { id: 'contacts', label: 'Контакты', href: '/#contacts' },
   ],
   cta: {

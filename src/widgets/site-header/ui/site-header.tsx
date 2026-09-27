@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { headerContent } from '@/content/header';
 import { siteConfig } from '@/shared/config/site';
-import { ArrowUpRight, buttonVariants, Container } from '@/shared/ui';
+import { ArrowUpRight, BrandLogo, buttonVariants, Container } from '@/shared/ui';
 
 import { HeaderShell } from './header-shell';
 import { MobileMenu } from './mobile-menu';
@@ -13,33 +13,22 @@ export function SiteHeader() {
 
   return (
     <HeaderShell>
-      <Container className="flex h-full items-center">
-        {/* Левая половина — всё, что до оси симметрии. */}
-        <div className="flex flex-1 items-center gap-4 2xl:basis-1/2 2xl:flex-none 2xl:gap-10 2xl:pr-8">
+      <Container className="relative flex h-full items-center">
+        <div className="flex shrink-0 items-center">
           <Link
             href="/"
             aria-label={`${brand.name} — в начало страницы`}
             className="flex shrink-0 items-center gap-3"
           >
-            <span
-              aria-hidden="true"
-              className="grid size-10 shrink-0 place-items-center rounded-full border border-border-strong font-mono text-caption text-text-strong"
-            >
-              {brand.monogram}
-            </span>
-            <span className="hidden sm:block">
-              <span className="block font-display text-body-sm leading-none font-light text-text-strong">
-                {brand.name}
-              </span>
-              <span className="type-eyebrow mt-1.5 block text-text-muted">{brand.role}</span>
-            </span>
+            <BrandLogo />
           </Link>
+        </div>
 
+        <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 2xl:block">
           <NavDesktop items={nav} />
         </div>
 
-        {/* Правая половина. Её левая граница и есть ось симметрии страницы. */}
-        <div className="hidden 2xl:flex 2xl:basis-1/2 2xl:flex-none 2xl:items-center 2xl:justify-end 2xl:gap-6 2xl:self-stretch 2xl:border-l 2xl:border-border 2xl:pl-8">
+        <div className="ml-auto hidden shrink-0 2xl:flex 2xl:items-center 2xl:justify-end 2xl:gap-6">
           <a
             href={`tel:${siteConfig.phone.e164}`}
             className="font-mono text-caption tabular-nums text-text transition-colors duration-(--duration-fast) hover:text-text-strong"
@@ -57,7 +46,9 @@ export function SiteHeader() {
           </a>
         </div>
 
-        <MobileMenu items={nav} brand={brand} cta={cta} eyebrow={menuEyebrow} />
+        <div className="ml-auto 2xl:hidden">
+          <MobileMenu items={nav} brand={brand} cta={cta} eyebrow={menuEyebrow} />
+        </div>
       </Container>
     </HeaderShell>
   );

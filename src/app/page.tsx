@@ -5,7 +5,6 @@ import {
   ContactSection,
   FaqSection,
   MediaSection,
-  MobileBookingBar,
   RecoverySection,
   ResultsSection,
   ServicesSection,
@@ -28,7 +27,6 @@ export default function HomePage() {
         <FaqSection />
         <ContactSection />
       </main>
-      <MobileBookingBar />
       <SiteFooter />
     </>
   );
