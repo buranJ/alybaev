@@ -32,7 +32,6 @@ const siteSchema = z.object({
     street: z.string(),
     full: z.string(),
   }),
-  /** TODO(клиент): уточнить точку по 2ГИС — сейчас центр Бишкека. */
   geo: z.object({ lat: z.number(), lng: z.number() }),
 });
 
@@ -59,7 +58,7 @@ const raw = {
     street: 'ул. Насирдина Исанова, 118',
     full: 'Бишкек, ул. Насирдина Исанова, 118',
   },
-  geo: { lat: 42.8746, lng: 74.5698 },
+  geo: { lat: 42.8808777, lng: 74.5918555 },
 } satisfies z.input<typeof siteSchema>;
 
 export const siteConfig: SiteConfig = siteSchema.parse(raw);

@@ -106,8 +106,8 @@
   /* ---- Пространство ---- */
   --spacing-section: clamp(5rem, 9vw, 10rem);
   --spacing-block: clamp(2rem, 4vw, 4rem);
-  --container-max: 82.5rem;
-  --container-pad: clamp(1rem, 4vw, 4rem);
+  --container-max: 101rem;
+  --container-pad: clamp(1rem, 2.25vw, 3rem);
   --measure: 68ch;
 
   /* Высоты шапки. Живут здесь, а не в компоненте: от них зависит
