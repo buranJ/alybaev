@@ -17,7 +17,7 @@ export function MobileMenu({ items, brand, cta, eyebrow }: MobileMenuProps) {
     <Dialog.Root>
       <Dialog.Trigger
         aria-label="Открыть меню"
-        className="-mr-3 grid size-11 place-items-center rounded-full text-text-strong transition-colors duration-(--duration-fast) hover:bg-surface-muted lg:hidden"
+        className="-mr-3 grid size-11 place-items-center rounded-full text-text-strong transition-colors duration-(--duration-fast) hover:bg-surface-muted 2xl:hidden"
       >
         <Menu size={22} strokeWidth={1.5} aria-hidden="true" />
       </Dialog.Trigger>
@@ -25,7 +25,7 @@ export function MobileMenu({ items, brand, cta, eyebrow }: MobileMenuProps) {
       <Dialog.Portal>
         <Dialog.Content
           aria-describedby={undefined}
-          className="menu-panel fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-bg px-(--container-pad) pb-10 lg:hidden"
+          className="menu-panel fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-bg px-(--container-pad) pb-10 2xl:hidden"
         >
           <Dialog.Title className="sr-only">Меню сайта</Dialog.Title>
 

@@ -2,7 +2,7 @@ import type { NavDesktopProps } from '../model/types';
 
 export function NavDesktop({ items }: NavDesktopProps) {
   return (
-    <nav aria-label="Основная навигация" className="hidden lg:block">
+    <nav aria-label="Основная навигация" className="hidden 2xl:block">
       <ul className="flex items-center gap-7">
         {items.map((item) => (
           <li key={item.id}>

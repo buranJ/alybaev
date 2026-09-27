@@ -15,7 +15,7 @@ export function SiteHeader() {
     <HeaderShell>
       <Container className="flex h-full items-center">
         {/* Левая половина — всё, что до оси симметрии. */}
-        <div className="flex flex-1 items-center gap-4 lg:basis-1/2 lg:flex-none lg:gap-10 lg:pr-8">
+        <div className="flex flex-1 items-center gap-4 2xl:basis-1/2 2xl:flex-none 2xl:gap-10 2xl:pr-8">
           <Link
             href="/"
             aria-label={`${brand.name} — в начало страницы`}
@@ -39,7 +39,7 @@ export function SiteHeader() {
         </div>
 
         {/* Правая половина. Её левая граница и есть ось симметрии страницы. */}
-        <div className="hidden lg:flex lg:basis-1/2 lg:flex-none lg:items-center lg:justify-end lg:gap-6 lg:self-stretch lg:border-l lg:border-border lg:pl-8">
+        <div className="hidden 2xl:flex 2xl:basis-1/2 2xl:flex-none 2xl:items-center 2xl:justify-end 2xl:gap-6 2xl:self-stretch 2xl:border-l 2xl:border-border 2xl:pl-8">
           <a
             href={`tel:${siteConfig.phone.e164}`}
             className="font-mono text-caption tabular-nums text-text transition-colors duration-(--duration-fast) hover:text-text-strong"

@@ -5,8 +5,8 @@ import { siteConfig } from '@/shared/config/site';
 const navItemSchema = z.object({
   id: z.string().min(1),
   label: z.string().min(2),
-  /** Только якоря: лендинг одностраничный. */
-  href: z.string().regex(/^#[a-z-]+$/, 'Ссылка меню должна быть якорем вида #services'),
+  /** Абсолютные якоря работают и на главной, и на внутренних страницах. */
+  href: z.string().regex(/^\/#[a-z-]+$/, 'Ссылка меню должна быть якорем вида /#services'),
 });
 
 const headerSchema = z.object({
@@ -20,7 +20,7 @@ const headerSchema = z.object({
   cta: z.object({
     label: z.string().min(2),
     labelShort: z.string().min(2),
-    href: z.string().regex(/^#[a-z-]+$/),
+    href: z.string().regex(/^\/#[a-z-]+$/),
   }),
   menuEyebrow: z.string().min(2),
 });
@@ -35,15 +35,15 @@ const raw = {
     role: siteConfig.role,
   },
   nav: [
-    { id: 'services', label: 'Услуги', href: '#services' },
-    { id: 'results', label: 'Результаты', href: '#results' },
-    { id: 'doctor', label: 'Врач', href: '#doctor' },
-    { id: 'contacts', label: 'Контакты', href: '#contacts' },
+    { id: 'services', label: 'Услуги', href: '/#services' },
+    { id: 'results', label: 'Результаты', href: '/#results' },
+    { id: 'doctor', label: 'Врач', href: '/#doctor' },
+    { id: 'contacts', label: 'Контакты', href: '/#contacts' },
   ],
   cta: {
     label: 'Записаться на консультацию',
     labelShort: 'Записаться',
-    href: '#booking',
+    href: '/#booking',
   },
   menuEyebrow: 'Меню',
 } satisfies z.input<typeof headerSchema>;
