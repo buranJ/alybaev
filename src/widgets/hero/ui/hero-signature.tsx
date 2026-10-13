@@ -1,9 +1,8 @@
 import Image from 'next/image';
 
+import { homeContent } from '@/content/home';
 import { heroContent } from '@/content/hero';
 import { ArrowUpRight, Container } from '@/shared/ui';
-
-const procedures = ['Блефаропластика', 'Отопластика'] as const;
 
 export function HeroSignature() {
   const { stats, note, image } = heroContent;
@@ -12,19 +11,23 @@ export function HeroSignature() {
     <section className="pb-5 lg:pb-8" aria-labelledby="hero-signature-title">
       <Container>
         <h1 id="hero-signature-title" className="sr-only">
-          Пластический хирург Урмат Алыбаев
+          {heroContent.title}
         </h1>
 
         <div className="flex flex-col gap-3 lg:grid lg:min-h-[calc(100svh-var(--spacing-header)-1.25rem)] lg:grid-cols-12">
           <div className="order-2 grid grid-cols-2 gap-3 lg:order-1 lg:col-span-4 lg:grid-rows-[auto_auto_1fr]">
             <article className="col-span-2 flex flex-col rounded-[var(--radius-xl)] border border-border bg-surface p-6 lg:min-h-[18rem] lg:p-8">
-              <p className="type-eyebrow text-text-muted">Принцип работы</p>
+              <p className="type-eyebrow text-text-muted">{heroContent.quoteLabel}</p>
 
               <blockquote className="mt-8 font-accent text-quote text-text-strong italic sm:max-w-[18ch] lg:mt-12">
-                <span className="block sm:inline">«Сохранить узнаваемость важнее, </span>
-                <span className="block sm:inline">чем следовать идеалу»</span>
+                {heroContent.quoteLines.map((line, index) => (
+                  <span key={index} className="block sm:inline">
+                    {line}
+                    {index < heroContent.quoteLines.length - 1 ? ' ' : ''}
+                  </span>
+                ))}
               </blockquote>
-              <p className="mt-5 text-caption text-text-muted lg:mt-6">Очная консультация перед операцией</p>
+              <p className="mt-5 text-caption text-text-muted lg:mt-6">{heroContent.quoteNote}</p>
             </article>
 
             {stats.slice(0, 2).map((stat) => (
@@ -32,21 +35,25 @@ export function HeroSignature() {
                 key={stat.label}
                 className="flex min-h-28 flex-col rounded-[var(--radius-lg)] bg-surface-muted p-4 sm:min-h-40 sm:p-6"
               >
-                <p className="font-display text-heading-1 font-light text-text-strong">{stat.value}</p>
-                <p className="mt-auto max-w-28 pt-3 text-caption text-text-muted sm:pt-6">{stat.label}</p>
+                <p className="font-display text-heading-1 font-light text-text-strong">
+                  {stat.value}
+                </p>
+                <p className="mt-auto max-w-28 pt-3 text-caption text-text-muted sm:pt-6">
+                  {stat.label}
+                </p>
               </div>
             ))}
 
             <div className="col-span-2 flex flex-col rounded-[var(--radius-xl)] border border-border bg-surface p-5 sm:p-6">
-              <p className="type-eyebrow text-text-muted">Направления</p>
-              <ul className="mt-5 grid flex-1 grid-rows-2 border-t border-border">
-                {procedures.map((procedure) => (
-                  <li key={procedure} className="border-b border-border">
+              <p className="type-eyebrow text-text-muted">{heroContent.proceduresLabel}</p>
+              <ul className="mt-5 grid flex-1 border-t border-border">
+                {homeContent.services.map((procedure) => (
+                  <li key={procedure.title} className="border-b border-border">
                     <a
                       href="#services"
                       className="group flex h-full min-h-14 items-center justify-between gap-4 py-4 text-body text-text-strong"
                     >
-                      <span>{procedure}</span>
+                      <span>{procedure.title}</span>
                       <ArrowUpRight className="text-accent transition-transform duration-(--duration-fast) group-hover:rotate-45" />
                     </a>
                   </li>
@@ -67,8 +74,14 @@ export function HeroSignature() {
             >
               <circle cx="244" cy="186" r="244" stroke="currentColor" />
               <circle cx="244" cy="186" r="140" stroke="currentColor" />
-              <path d="M-78 504C127 250 308 250 454 416C586 566 710 545 978 284" stroke="currentColor" />
-              <path d="M-62 550C132 317 310 302 467 464C609 611 753 578 954 377" stroke="currentColor" />
+              <path
+                d="M-78 504C127 250 308 250 454 416C586 566 710 545 978 284"
+                stroke="currentColor"
+              />
+              <path
+                d="M-62 550C132 317 310 302 467 464C609 611 753 578 954 377"
+                stroke="currentColor"
+              />
             </svg>
 
             <Image
@@ -84,12 +97,13 @@ export function HeroSignature() {
 
             <div className="absolute top-5 left-5 z-20 grid w-[17rem] grid-cols-1 items-center gap-4 rounded-[var(--radius-lg)] bg-surface px-4 py-4 shadow-float sm:top-auto sm:right-8 sm:bottom-8 sm:left-8 sm:w-auto sm:grid-cols-[1fr_1.15fr] sm:px-5">
               <div>
-                <p className="font-display text-body font-light text-text-strong">Урмат Алыбаев</p>
-                <p className="mt-1 text-caption text-text-muted">Пластический хирург</p>
+                <p className="font-display text-body font-light text-text-strong">
+                  {heroContent.name}
+                </p>
+                <p className="mt-1 text-caption text-text-muted">{heroContent.role}</p>
               </div>
               <p className="hidden text-center text-caption text-text-muted sm:block">{note}</p>
             </div>
-
           </div>
         </div>
       </Container>

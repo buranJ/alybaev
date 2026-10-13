@@ -1,0 +1,52 @@
+{
+  "eyebrow": "Пациенты",
+  "titleLines": ["Результат, который", "не спорит с лицом"],
+  "instagramLabel": "Все работы в Instagram",
+  "allLabel": "Все работы",
+  "archiveLabel": "Фотографии из архива врача",
+  "swipeLabel": "Листайте, чтобы увидеть больше",
+  "caseLabel": "Клинический случай",
+  "disclaimer": "Фотографии из архива врача публикуются с согласия пациентов. Результат всегда индивидуален.",
+  "items": [
+    {
+      "src": "/images/results/blepharoplasty-01.jpg",
+      "alt": "Результат блефаропластики",
+      "procedure": "Блефаропластика"
+    },
+    {
+      "src": "/images/results/blepharoplasty-02.jpg",
+      "alt": "Результат блефаропластики",
+      "procedure": "Блефаропластика"
+    },
+    {
+      "src": "/images/results/otoplasty-01.jpg",
+      "alt": "Результат отопластики",
+      "procedure": "Отопластика"
+    },
+    {
+      "src": "/images/results/blepharoplasty-03.jpg",
+      "alt": "Результат блефаропластики",
+      "procedure": "Блефаропластика"
+    },
+    {
+      "src": "/images/results/blepharoplasty-04.jpg",
+      "alt": "Результат блефаропластики",
+      "procedure": "Блефаропластика"
+    },
+    {
+      "src": "/images/results/otoplasty-02.jpg",
+      "alt": "Результат отопластики",
+      "procedure": "Отопластика"
+    },
+    {
+      "src": "/images/results/blepharoplasty-06.jpg",
+      "alt": "Результат блефаропластики",
+      "procedure": "Блефаропластика"
+    },
+    {
+      "src": "/images/results/blepharoplasty-07.jpg",
+      "alt": "Результат блефаропластики",
+      "procedure": "Блефаропластика"
+    }
+  ]
+}

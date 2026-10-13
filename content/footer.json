@@ -1,0 +1,27 @@
+{
+  "nav": [
+    {
+      "label": "Услуги",
+      "href": "/#services"
+    },
+    {
+      "label": "Результаты",
+      "href": "/#results"
+    },
+    {
+      "label": "О враче",
+      "href": "/#doctor"
+    },
+    {
+      "label": "Сертификаты",
+      "href": "/ser#main-content"
+    },
+    {
+      "label": "Контакты",
+      "href": "/#contacts"
+    }
+  ],
+  "creditLabel": "Разработано",
+  "creditName": "itdos.dev",
+  "creditUrl": "https://itdos.dev/"
+}

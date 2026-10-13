@@ -1,13 +1,8 @@
+import { homeContent } from '@/content/home';
 import { siteConfig } from '@/shared/config/site';
 import { BrandLogo, Container } from '@/shared/ui';
 
-const footerNav = [
-  { label: 'Услуги', href: '/#services' },
-  { label: 'Результаты', href: '/#results' },
-  { label: 'О враче', href: '/#doctor' },
-  { label: 'Сертификаты', href: '/ser#main-content' },
-  { label: 'Контакты', href: '/#contacts' },
-] as const;
+const footerNav = homeContent.footer.nav;
 
 export function SiteFooter() {
   return (
@@ -31,11 +26,18 @@ export function SiteFooter() {
         </div>
         <div className="mt-7 border-t border-border pt-5 text-caption text-text-muted lg:mt-10 lg:pt-6">
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-            <p>© {new Date().getFullYear()} {siteConfig.name}</p>
             <p>
-              Разработано{' '}
-              <a href="https://itdos.dev/" target="_blank" rel="noreferrer" className="text-text-strong underline decoration-border-strong underline-offset-4 transition-colors hover:text-accent">
-                itdos.dev
+              © {new Date().getFullYear()} {siteConfig.name}
+            </p>
+            <p>
+              {homeContent.footer.creditLabel}{' '}
+              <a
+                href={homeContent.footer.creditUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-text-strong underline decoration-border-strong underline-offset-4 transition-colors hover:text-accent"
+              >
+                {homeContent.footer.creditName}
               </a>
             </p>
           </div>

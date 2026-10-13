@@ -1,0 +1,49 @@
+{
+  "nav": [
+    {
+      "id": "doctor",
+      "label": "О враче",
+      "href": "/#doctor"
+    },
+    {
+      "id": "services",
+      "label": "Направления",
+      "href": "/#services"
+    },
+    {
+      "id": "results",
+      "label": "Результаты",
+      "href": "/#results"
+    },
+    {
+      "id": "reviews",
+      "label": "Отзывы",
+      "href": "/#reviews"
+    },
+    {
+      "id": "education",
+      "label": "Образование",
+      "href": "/#education"
+    },
+    {
+      "id": "recovery",
+      "label": "Восстановление",
+      "href": "/#recovery"
+    },
+    {
+      "id": "faq",
+      "label": "FAQ",
+      "href": "/#faq"
+    },
+    {
+      "id": "contacts",
+      "label": "Контакты",
+      "href": "/#contacts"
+    }
+  ],
+  "cta": {
+    "label": "Записаться на консультацию",
+    "labelShort": "Записаться",
+    "href": "/#booking"
+  }
+}

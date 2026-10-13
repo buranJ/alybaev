@@ -1,0 +1,30 @@
+{
+  "name": "Урмат Алыбаев",
+  "shortName": "Алыбаев",
+  "role": "пластический хирург",
+  "description": "Пластический хирург в Бишкеке. Верхняя и нижняя блефаропластика, отопластика. 5+ лет практики, более 3000 операций.",
+  "url": "https://alybaev.com",
+  "locale": "ru_RU",
+  "phone": {
+    "e164": "+996700977277",
+    "display": "+996 700 977 277"
+  },
+  "whatsapp": "https://wa.me/996700977277",
+  "instagram": "https://instagram.com/dr.alybaev",
+  "instagramHandle": "@dr.alybaev",
+  "address": {
+    "country": "KG",
+    "city": "Бишкек",
+    "street": "ул. Насирдина Исанова, 118",
+    "full": "Бишкек, ул. Насирдина Исанова, 118"
+  },
+  "geo": {
+    "lat": 42.8808777,
+    "lng": 74.5918555
+  },
+  "logo": {
+    "src": "/images/brand-logo.svg",
+    "alt": "Dr. Alybaev",
+    "crop": true
+  }
+}

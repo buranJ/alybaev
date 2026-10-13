@@ -1,0 +1,15 @@
+{
+  "eyebrow": "Очный приём в Бишкеке",
+  "title": "Начнём с личного разговора",
+  "mobileTitleLines": ["Начнём с личного", "разговора"],
+  "description": "Напишите администратору в WhatsApp. Вам помогут выбрать время консультации и ответят на организационные вопросы.",
+  "buttonLabel": "Записаться в WhatsApp",
+  "whatsappText": "Здравствуйте! Хочу записаться на консультацию к доктору Алыбаеву.",
+  "phoneLabel": "Телефон",
+  "whatsappLabel": "WhatsApp",
+  "instagramLabel": "Instagram",
+  "administratorLabel": "Написать администратору",
+  "addressLabel": "Адрес клиники",
+  "mapLabel": "2GIS",
+  "clinic": "Green Clinic"
+}

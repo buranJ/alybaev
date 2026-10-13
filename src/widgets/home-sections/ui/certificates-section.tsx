@@ -9,15 +9,22 @@ export function CertificatesSection() {
   const preview = homeContent.certificates.slice(0, 4);
 
   return (
-    <section id="education" className="scroll-mt-24 overflow-hidden bg-surface-muted py-(--spacing-section)" aria-labelledby="certificates-title">
+    <section
+      id="education"
+      className="scroll-mt-24 overflow-hidden bg-surface-muted py-(--spacing-section)"
+      aria-labelledby="certificates-title"
+    >
       <Container>
         <div className="max-w-3xl text-left sm:mx-auto sm:text-center">
-          <p className="type-eyebrow text-accent">Образование</p>
-          <h2 id="certificates-title" className="mt-6 font-display text-display-lg font-light text-text-strong">
-            Обучение, которое стоит за практикой
+          <p className="type-eyebrow text-accent">{homeContent.certificatesSection.eyebrow}</p>
+          <h2
+            id="certificates-title"
+            className="mt-6 font-display text-display-lg font-light text-text-strong"
+          >
+            {homeContent.certificatesSection.title}
           </h2>
           <p className="mt-6 max-w-[58ch] text-body text-text-muted sm:mx-auto">
-            Сертификаты и документы о профессиональном развитии можно открыть и рассмотреть в полном размере.
+            {homeContent.certificatesSection.description}
           </p>
         </div>
 
@@ -31,7 +38,13 @@ export function CertificatesSection() {
               className={`absolute aspect-[4/3] overflow-hidden border border-border bg-surface shadow-card ${index === 0 ? 'top-0 left-0 z-10 w-[74%] -rotate-5' : 'top-8 right-0 z-20 w-[86%] rotate-2'}`}
               aria-label={`Открыть: ${certificate.alt}`}
             >
-              <Image src={certificate.src} alt={certificate.alt} fill sizes="78vw" className="object-contain p-3" />
+              <Image
+                src={certificate.src}
+                alt={certificate.alt}
+                fill
+                sizes="78vw"
+                className="object-contain p-3"
+              />
             </a>
           ))}
         </div>
@@ -58,8 +71,11 @@ export function CertificatesSection() {
         </div>
 
         <div className="relative z-30 mt-6 flex justify-center">
-          <Link href="/ser#main-content" className={buttonVariants({ variant: 'outline', size: 'lg' })}>
-            Открыть всю галерею
+          <Link
+            href="/ser#main-content"
+            className={buttonVariants({ variant: 'outline', size: 'lg' })}
+          >
+            {homeContent.certificatesSection.actionLabel}
             <ArrowUpRight aria-hidden="true" className="size-4" />
           </Link>
         </div>

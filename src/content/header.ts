@@ -1,54 +1,30 @@
 import { z } from 'zod';
 
+import raw from '../../content/navigation.json';
 import { siteConfig } from '@/shared/config/site';
+import { textSchema } from '@/shared/lib/content-schema';
 
 const navItemSchema = z.object({
-  id: z.string().min(1),
-  label: z.string().min(2),
-  /** Абсолютные якоря работают и на главной, и на внутренних страницах. */
+  id: textSchema,
+  label: textSchema,
   href: z.string().regex(/^\/#[a-z-]+$/, 'Ссылка меню должна быть якорем вида /#services'),
 });
 
-const headerSchema = z.object({
-  brand: z.object({
-    monogram: z.string().length(2),
-    name: z.string().min(2),
-    role: z.string().min(2),
-  }),
-  nav: z.array(navItemSchema).length(8),
+export const headerSchema = z.object({
+  brand: z.object({ monogram: textSchema, name: textSchema, role: textSchema }),
+  nav: z.array(navItemSchema).min(1).max(8),
   cta: z.object({
-    label: z.string().min(2),
-    labelShort: z.string().min(2),
+    label: textSchema,
+    labelShort: textSchema,
     href: z.string().regex(/^\/#[a-z-]+$/),
   }),
-  menuEyebrow: z.string().min(2),
+  menuEyebrow: textSchema,
 });
 
 export type NavItem = z.infer<typeof navItemSchema>;
 export type HeaderContent = z.infer<typeof headerSchema>;
-
-const raw = {
-  brand: {
-    monogram: 'УА',
-    name: siteConfig.name,
-    role: siteConfig.role,
-  },
-  nav: [
-    { id: 'doctor', label: 'О враче', href: '/#doctor' },
-    { id: 'services', label: 'Направления', href: '/#services' },
-    { id: 'results', label: 'Результаты', href: '/#results' },
-    { id: 'reviews', label: 'Отзывы', href: '/#reviews' },
-    { id: 'education', label: 'Образование', href: '/#education' },
-    { id: 'recovery', label: 'Восстановление', href: '/#recovery' },
-    { id: 'faq', label: 'FAQ', href: '/#faq' },
-    { id: 'contacts', label: 'Контакты', href: '/#contacts' },
-  ],
-  cta: {
-    label: 'Записаться на консультацию',
-    labelShort: 'Записаться',
-    href: '/#booking',
-  },
+export const headerContent: HeaderContent = headerSchema.parse({
+  ...raw,
+  brand: { monogram: 'УА', name: siteConfig.name, role: siteConfig.role },
   menuEyebrow: 'Меню',
-} satisfies z.input<typeof headerSchema>;
-
-export const headerContent: HeaderContent = headerSchema.parse(raw);
+});

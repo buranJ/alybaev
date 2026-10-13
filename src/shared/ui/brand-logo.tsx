@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { siteConfig } from '@/shared/config/site';
 import { cn } from '@/shared/lib/cn';
 
 interface BrandLogoProps {
@@ -10,18 +11,19 @@ export function BrandLogo({ className }: BrandLogoProps) {
   return (
     <span
       aria-hidden="true"
-      className={cn(
-        'relative block h-14 w-20 shrink-0 overflow-hidden',
-        className,
-      )}
+      className={cn('relative block h-14 w-20 shrink-0 overflow-hidden', className)}
     >
       <Image
-        src="/images/brand-logo.svg"
+        src={siteConfig.logo.src}
         alt=""
         width={1080}
         height={1080}
         unoptimized
-        className="pointer-events-none absolute -top-3.5 left-1/2 w-24 max-w-none -translate-x-1/2 select-none"
+        className={
+          siteConfig.logo.crop
+            ? 'pointer-events-none absolute -top-3.5 left-1/2 w-24 max-w-none -translate-x-1/2 select-none'
+            : 'h-full w-full object-contain'
+        }
       />
     </span>
   );

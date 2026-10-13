@@ -1,0 +1,63 @@
+{
+  "eyebrow": "Образование",
+  "title": "Обучение, которое стоит за практикой",
+  "description": "Сертификаты и документы о профессиональном развитии можно открыть и рассмотреть в полном размере.",
+  "actionLabel": "Открыть всю галерею",
+  "galleryTitle": "Сертификаты",
+  "galleryDescription": "Подтверждение обучения и профессионального развития врача.",
+  "dossierEyebrow": "Личное дело",
+  "dossierTitle": "Каждый документ — отдельная глава",
+  "backLabel": "На главную",
+  "items": [
+    {
+      "src": "/images/certificates/certificate-01-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/certificates/certificate-02-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/certificates/certificate-03-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/certificates/certificate-04-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/certificates/certificate-05-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/certificates/certificate-06-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/certificates/certificate-07-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/certificates/certificate-08-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "portrait"
+    },
+    {
+      "src": "/images/certificates/certificate-09-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    },
+    {
+      "src": "/images/certificates/certificate-10-upright.jpg",
+      "alt": "Сертификат Урмата Алыбаева",
+      "orientation": "landscape"
+    }
+  ]
+}
