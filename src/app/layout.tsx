@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 
 import { siteConfig } from '@/shared/config/site';
 import { fontVariables } from '@/shared/fonts';
+import { IdentityRedirect } from '@/features/admin/ui/identity-redirect';
 
 import './globals.css';
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: '/images/brand-logo.svg',
+    icon: siteConfig.logo.src,
   },
   alternates: {
     canonical: '/',
@@ -43,7 +44,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="ru">
-      <body className={fontVariables}>{children}</body>
+      <body className={fontVariables}>
+        <IdentityRedirect />
+        {children}
+      </body>
     </html>
   );
 }

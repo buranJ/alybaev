@@ -1,0 +1,2336 @@
+{
+  "app_title": "Dr. Alybaev — управление сайтом",
+  "collections": [
+    {
+      "name": "pages",
+      "label": "Блоки сайта",
+      "files": [
+        {
+          "name": "hero",
+          "label": "Главный экран",
+          "file": "content/hero.json",
+          "format": "json",
+          "preview_path": "/",
+          "fields": [
+            {
+              "name": "title",
+              "label": "Заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "quoteLabel",
+              "label": "Подпись цитаты",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "quoteLines",
+              "label": "Строки цитаты",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "«Сохранить узнаваемость важнее,",
+                "чем следовать идеалу»"
+              ],
+              "max": 4,
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "string",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            },
+            {
+              "name": "quoteNote",
+              "label": "Текст под цитатой",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "stats",
+              "label": "Статистика",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 2,
+              "default": [
+                {
+                  "value": "5+",
+                  "label": "лет практики"
+                },
+                {
+                  "value": "3000+",
+                  "label": "проведённых операций"
+                }
+              ],
+              "max": 2,
+              "fields": [
+                {
+                  "name": "value",
+                  "label": "Значение",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "label",
+                  "label": "Подпись",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ],
+              "summary": "{{fields.label}}"
+            },
+            {
+              "name": "note",
+              "label": "Примечание",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "image",
+              "label": "Фотография",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Изображение",
+                  "required": true,
+                  "widget": "image",
+                  "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                  "pattern": [
+                    "^/images/[^?#]+$",
+                    "Выберите файл из медиатеки сайта"
+                  ]
+                },
+                {
+                  "name": "alt",
+                  "label": "Описание изображения",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "proceduresLabel",
+              "label": "Подпись направлений",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "name",
+              "label": "Имя",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "role",
+              "label": "Специализация",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "about",
+          "label": "О враче",
+          "file": "content/about.json",
+          "format": "json",
+          "preview_path": "/#doctor",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "title",
+              "label": "Заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "paragraphs",
+              "label": "Абзацы",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "Урмат Алыбаев, пластический хирург в Бишкеке. Более пяти лет практики и свыше 3000 проведённых операций. Работа врача помогает пациентам не только изменить внешность, но и чувствовать себя увереннее.",
+                "Основные направления, верхняя и нижняя блефаропластика, отопластика. В работе важны точность, естественный результат и сохранение индивидуальных черт.",
+                "План операции формируется только после очной консультации, с учётом анатомии, показаний и личного запроса пациента."
+              ],
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "text",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            },
+            {
+              "name": "principles",
+              "label": "Принципы работы",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "Естественный результат",
+                "Честные ожидания",
+                "Индивидуальный план"
+              ],
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "string",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            },
+            {
+              "name": "milestones",
+              "label": "Образование и события",
+              "required": false,
+              "widget": "list",
+              "collapsed": true,
+              "min": 0,
+              "default": [
+                {
+                  "year": "2017",
+                  "title": "Профильное образование",
+                  "description": "Квалификация пластического хирурга, Кыргызская государственная медицинская академия.",
+                  "href": "https://medik.kg/doctor/alybaev/"
+                },
+                {
+                  "year": "2024",
+                  "title": "Доклад на международном конгрессе",
+                  "description": "Методы коррекции асимметрии век у азиатских типов внешности.",
+                  "href": "https://ksps.net.kg/wp-content/uploads/2024/07/congress_programm_2024ru.pdf"
+                }
+              ],
+              "fields": [
+                {
+                  "name": "year",
+                  "label": "Год",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Заголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "description",
+                  "label": "Описание",
+                  "required": true,
+                  "widget": "text",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "href",
+                  "label": "Ссылка",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "^(https://[^\\s]+|/(?!/)[^\\s]*|#[a-zA-Z][\\w-]*)$",
+                    "Введите HTTPS-ссылку или путь на сайте"
+                  ]
+                }
+              ],
+              "summary": "{{fields.title}}"
+            },
+            {
+              "name": "image",
+              "label": "Фотография",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Изображение",
+                  "required": true,
+                  "widget": "image",
+                  "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                  "pattern": [
+                    "^/images/[^?#]+$",
+                    "Выберите файл из медиатеки сайта"
+                  ]
+                },
+                {
+                  "name": "alt",
+                  "label": "Описание изображения",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "principlesLabel",
+              "label": "Заголовок принципов",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "services",
+          "label": "Направления",
+          "file": "content/services.json",
+          "format": "json",
+          "preview_path": "/#services",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "titleLines",
+              "label": "Строки заголовка",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "Два направления,",
+                "одна точная специализация"
+              ],
+              "max": 4,
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "string",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            },
+            {
+              "name": "image",
+              "label": "Фотография",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Изображение",
+                  "required": true,
+                  "widget": "image",
+                  "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                  "pattern": [
+                    "^/images/[^?#]+$",
+                    "Выберите файл из медиатеки сайта"
+                  ]
+                },
+                {
+                  "name": "alt",
+                  "label": "Описание изображения",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "imageLabel",
+              "label": "Подпись на изображении",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "items",
+              "label": "Карточки",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "title": "Блефаропластика",
+                  "shortTitle": "Открытый, свежий взгляд",
+                  "description": "Коррекция избытка кожи и подкожной жировой ткани в области верхних или нижних век. Задача операции, вернуть взгляду более свежий вид и сохранить узнаваемость лица.",
+                  "details": [
+                    "Верхние веки",
+                    "Нижние веки",
+                    "Эпикантопластика по показаниям"
+                  ],
+                  "eyebrow": "Фокус на естественности"
+                },
+                {
+                  "title": "Отопластика",
+                  "shortTitle": "Гармоничные пропорции",
+                  "description": "Коррекция формы или положения ушных раковин. Объём операции определяется индивидуально после очного осмотра и обсуждения желаемого результата.",
+                  "details": [
+                    "Форма ушной раковины",
+                    "Положение ушей",
+                    "Индивидуальная симметрия"
+                  ],
+                  "eyebrow": "Работа с пропорциями"
+                }
+              ],
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Заголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "shortTitle",
+                  "label": "Подзаголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "description",
+                  "label": "Описание",
+                  "required": true,
+                  "widget": "text",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "details",
+                  "label": "Особенности",
+                  "required": true,
+                  "widget": "list",
+                  "collapsed": true,
+                  "min": 1,
+                  "default": [
+                    "Верхние веки",
+                    "Нижние веки",
+                    "Эпикантопластика по показаниям"
+                  ],
+                  "field": {
+                    "name": "value",
+                    "label": "Текст",
+                    "widget": "string",
+                    "required": true,
+                    "pattern": [
+                      "\\S",
+                      "Текст не может быть пустым"
+                    ]
+                  }
+                },
+                {
+                  "name": "eyebrow",
+                  "label": "Надзаголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ],
+              "summary": "{{fields.title}}"
+            }
+          ]
+        },
+        {
+          "name": "results",
+          "label": "Фотографии работ",
+          "file": "content/results.json",
+          "format": "json",
+          "preview_path": "/#results",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "titleLines",
+              "label": "Строки заголовка",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "Результат, который",
+                "не спорит с лицом"
+              ],
+              "max": 4,
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "string",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            },
+            {
+              "name": "instagramLabel",
+              "label": "Подпись Instagram",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "allLabel",
+              "label": "Подпись «Все работы»",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "archiveLabel",
+              "label": "Подпись архива",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "swipeLabel",
+              "label": "Подсказка для перелистывания",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "caseLabel",
+              "label": "Подпись случая",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "disclaimer",
+              "label": "Текст под фотографией",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "items",
+              "label": "Карточки",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "src": "/images/results/blepharoplasty-01.jpg",
+                  "alt": "Результат блефаропластики",
+                  "procedure": "Блефаропластика"
+                },
+                {
+                  "src": "/images/results/blepharoplasty-02.jpg",
+                  "alt": "Результат блефаропластики",
+                  "procedure": "Блефаропластика"
+                },
+                {
+                  "src": "/images/results/otoplasty-01.jpg",
+                  "alt": "Результат отопластики",
+                  "procedure": "Отопластика"
+                },
+                {
+                  "src": "/images/results/blepharoplasty-03.jpg",
+                  "alt": "Результат блефаропластики",
+                  "procedure": "Блефаропластика"
+                },
+                {
+                  "src": "/images/results/blepharoplasty-04.jpg",
+                  "alt": "Результат блефаропластики",
+                  "procedure": "Блефаропластика"
+                },
+                {
+                  "src": "/images/results/otoplasty-02.jpg",
+                  "alt": "Результат отопластики",
+                  "procedure": "Отопластика"
+                },
+                {
+                  "src": "/images/results/blepharoplasty-06.jpg",
+                  "alt": "Результат блефаропластики",
+                  "procedure": "Блефаропластика"
+                },
+                {
+                  "src": "/images/results/blepharoplasty-07.jpg",
+                  "alt": "Результат блефаропластики",
+                  "procedure": "Блефаропластика"
+                }
+              ],
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Изображение",
+                  "required": true,
+                  "widget": "image",
+                  "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                  "pattern": [
+                    "^/images/[^?#]+$",
+                    "Выберите файл из медиатеки сайта"
+                  ]
+                },
+                {
+                  "name": "alt",
+                  "label": "Описание изображения",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "procedure",
+                  "label": "Название процедуры",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ],
+              "summary": "{{fields.procedure}}"
+            }
+          ]
+        },
+        {
+          "name": "reviews",
+          "label": "Отзывы",
+          "file": "content/reviews.json",
+          "format": "json",
+          "preview_path": "/#reviews",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "title",
+              "label": "Заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "archiveLabel",
+              "label": "Подпись архива",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "items",
+              "label": "Карточки",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "text": "Хотела поблагодарить доктора Алыбаева Урмата Талайбековича за проделанную работу. После верхней блефаропластики я так преобразилась, что захотелось поменять имидж. Операция прошла успешно, всё получилось очень естественно. У вас золотые руки, желаю вам процветания.",
+                  "procedure": "Верхняя блефаропластика"
+                },
+                {
+                  "text": "Сегодня ровно две недели после операции. Передайте, пожалуйста, мою благодарность Урмату Талайбековичу за его ювелирную работу. Операция на лице, серьёзный шаг, и я переживала, но всё прошло отлично. Я безмерно рада, что попала к такому талантливому хирургу.",
+                  "procedure": "Нижняя блефаропластика"
+                },
+                {
+                  "text": "Профессионал своего дела, всё аккуратно и чётко. К своей работе относится очень трепетно и ответственно, старается учесть все нюансы. Перед тем как отпустить, ещё раз убедился, всё ли ровно и симметрично. Я очень довольна результатом.",
+                  "procedure": "Блефаропластика"
+                },
+                {
+                  "text": "Очень благодарна Урмату Талайбековичу. Считаю, что руки очень лёгкие, золотые. Сильного отёка не было, чему я очень рада. Чувствую себя отлично и уверенно, любуюсь собой каждый день.",
+                  "procedure": "Отзыв пациентки"
+                },
+                {
+                  "text": "Прошло три месяца после блефаропластики, я очень довольна результатом. Мне нравятся мои глаза. Спасибо вам большое. Вы золотой врач, безупречный специалист своего дела и доброй души человек.",
+                  "procedure": "Блефаропластика"
+                }
+              ],
+              "fields": [
+                {
+                  "name": "text",
+                  "label": "Текст",
+                  "required": true,
+                  "widget": "text",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "procedure",
+                  "label": "Название процедуры",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ],
+              "summary": "{{fields.procedure}}"
+            }
+          ]
+        },
+        {
+          "name": "media",
+          "label": "Философия, видео и Instagram",
+          "file": "content/media.json",
+          "format": "json",
+          "preview_path": "/#philosophy-title",
+          "fields": [
+            {
+              "name": "philosophy",
+              "label": "Философия врача",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Надзаголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Заголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "description",
+                  "label": "Описание",
+                  "required": true,
+                  "widget": "text",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "signature",
+                  "label": "Подпись врача",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "video",
+              "label": "Видео",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Надзаголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "label",
+                  "label": "Подпись",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "image",
+                  "label": "Фотография",
+                  "required": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Изображение",
+                      "required": true,
+                      "widget": "image",
+                      "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                      "pattern": [
+                        "^/images/[^?#]+$",
+                        "Выберите файл из медиатеки сайта"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Описание изображения",
+                      "required": true,
+                      "widget": "string",
+                      "pattern": [
+                        "\\S",
+                        "Текст не может быть пустым"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "caption",
+                  "label": "Подпись на видео",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Заголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "instagram",
+              "label": "Instagram",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "eyebrow",
+                  "label": "Надзаголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Заголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "mobileTitle",
+                  "label": "Заголовок на телефоне",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "description",
+                  "label": "Описание",
+                  "required": true,
+                  "widget": "text",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "buttonLabel",
+                  "label": "Подпись кнопки",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "images",
+                  "label": "Фотографии",
+                  "required": true,
+                  "widget": "list",
+                  "collapsed": true,
+                  "min": 4,
+                  "default": [
+                    {
+                      "src": "/images/urmat-consultation.png",
+                      "alt": "Пластический хирург Урмат Алыбаев во время консультации",
+                      "label": "Доктор"
+                    },
+                    {
+                      "src": "/images/instagram-anatomy-v2.png",
+                      "alt": "Анатомическое исследование области век",
+                      "label": "Планирование"
+                    },
+                    {
+                      "src": "/images/instagram-profile-v3.png",
+                      "alt": "Профиль женщины с естественными чертами",
+                      "label": "Пропорции"
+                    },
+                    {
+                      "src": "/images/instagram-preparation-v2.png",
+                      "alt": "Подготовка хирургических инструментов",
+                      "label": "Подготовка"
+                    }
+                  ],
+                  "max": 4,
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Изображение",
+                      "required": true,
+                      "widget": "image",
+                      "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                      "pattern": [
+                        "^/images/[^?#]+$",
+                        "Выберите файл из медиатеки сайта"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Описание изображения",
+                      "required": true,
+                      "widget": "string",
+                      "pattern": [
+                        "\\S",
+                        "Текст не может быть пустым"
+                      ]
+                    },
+                    {
+                      "name": "label",
+                      "label": "Подпись",
+                      "required": true,
+                      "widget": "string",
+                      "pattern": [
+                        "\\S",
+                        "Текст не может быть пустым"
+                      ]
+                    }
+                  ],
+                  "summary": "{{fields.label}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "certificates",
+          "label": "Сертификаты",
+          "file": "content/certificates.json",
+          "format": "json",
+          "preview_path": "/ser#main-content",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "title",
+              "label": "Заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "description",
+              "label": "Описание",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "actionLabel",
+              "label": "Подпись кнопки галереи",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "galleryTitle",
+              "label": "Заголовок страницы галереи",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "galleryDescription",
+              "label": "Описание страницы галереи",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "dossierEyebrow",
+              "label": "Надзаголовок досье",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "dossierTitle",
+              "label": "Заголовок досье",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "backLabel",
+              "label": "Подпись возврата на главную",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "items",
+              "label": "Карточки",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "src": "/images/certificates/certificate-01-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                },
+                {
+                  "src": "/images/certificates/certificate-02-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                },
+                {
+                  "src": "/images/certificates/certificate-03-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "portrait"
+                },
+                {
+                  "src": "/images/certificates/certificate-04-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                },
+                {
+                  "src": "/images/certificates/certificate-05-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                },
+                {
+                  "src": "/images/certificates/certificate-06-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                },
+                {
+                  "src": "/images/certificates/certificate-07-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                },
+                {
+                  "src": "/images/certificates/certificate-08-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "portrait"
+                },
+                {
+                  "src": "/images/certificates/certificate-09-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                },
+                {
+                  "src": "/images/certificates/certificate-10-upright.jpg",
+                  "alt": "Сертификат Урмата Алыбаева",
+                  "orientation": "landscape"
+                }
+              ],
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Изображение",
+                  "required": true,
+                  "widget": "image",
+                  "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                  "pattern": [
+                    "^/images/[^?#]+$",
+                    "Выберите файл из медиатеки сайта"
+                  ]
+                },
+                {
+                  "name": "alt",
+                  "label": "Описание изображения",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "orientation",
+                  "label": "Ориентация документа",
+                  "required": true,
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Горизонтальный",
+                      "value": "landscape"
+                    },
+                    {
+                      "label": "Вертикальный",
+                      "value": "portrait"
+                    }
+                  ]
+                }
+              ],
+              "summary": "{{fields.alt}}"
+            }
+          ]
+        },
+        {
+          "name": "recovery",
+          "label": "Восстановление",
+          "file": "content/recovery.json",
+          "format": "json",
+          "preview_path": "/#recovery",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "titleLines",
+              "label": "Строки заголовка",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "Понимать этапы,",
+                "значит меньше тревожиться"
+              ],
+              "max": 4,
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "string",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            },
+            {
+              "name": "subtitle",
+              "label": "Подзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "description",
+              "label": "Описание",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "faqLabel",
+              "label": "Подпись ссылки на FAQ",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "notesLabel",
+              "label": "Заголовок примечаний",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "stages",
+              "label": "Этапы восстановления",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "period": "В день операции",
+                  "title": "Сразу после операции",
+                  "text": "После наблюдения в течение примерно тридцати минут пациент может покинуть клинику. Иногородним рекомендуют остаться в Бишкеке минимум на сутки."
+                },
+                {
+                  "period": "Шестой день",
+                  "title": "Снятие швов",
+                  "text": "Обычно швы снимают на шестой день. После эпикантопластики врач может увеличить этот срок до десяти дней."
+                },
+                {
+                  "period": "Первые недели",
+                  "title": "Основное восстановление",
+                  "text": "В первую неделю может сохраняться выраженный отёк. Основной период восстановления обычно занимает около двух недель."
+                },
+                {
+                  "period": "Через месяц",
+                  "title": "Возвращение к привычному",
+                  "text": "Косметика и наращивание ресниц возможны примерно через месяц; спорт, через полтора месяца; баня и парилка, через три месяца."
+                },
+                {
+                  "period": "До полугода",
+                  "title": "Полное заживление",
+                  "text": "Ткани продолжают меняться от четырёх до шести месяцев, даже когда внешние следы восстановления уже незаметны."
+                }
+              ],
+              "fields": [
+                {
+                  "name": "period",
+                  "label": "Срок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "title",
+                  "label": "Заголовок",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "text",
+                  "label": "Текст",
+                  "required": true,
+                  "widget": "text",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ],
+              "summary": "{{fields.title}}"
+            },
+            {
+              "name": "notes",
+              "label": "Примечания",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "Возраст пациента, от пятнадцати лет после очной консультации",
+                "При поездке из другого города запланируйте минимум сутки в Бишкеке",
+                "Сроки могут меняться в зависимости от объёма операции"
+              ],
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "string",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "faq",
+          "label": "Частые вопросы",
+          "file": "content/faq.json",
+          "format": "json",
+          "preview_path": "/#faq",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "title",
+              "label": "Заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "description",
+              "label": "Описание",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "items",
+              "label": "Карточки",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "question": "Как попасть на консультацию раньше?",
+                  "answer": [
+                    "Можно записаться в лист ожидания. Если другой пациент отменит или перенесёт запись, администратор предложит ближайшее свободное окно.",
+                    "Онлайн-консультации по видеосвязи не проводятся. Пациентам из Бишкека и других регионов нужна очная консультация перед операцией."
+                  ]
+                },
+                {
+                  "question": "Какие есть противопоказания?",
+                  "answer": [
+                    "Ограничениями могут быть заболевания сердца и сосудов, повышенное артериальное давление, перенесённые инфаркт или инсульт, неврологические заболевания, острые и простудные состояния, неконтролируемый сахарный диабет и беременность.",
+                    "При заболеваниях глаз может потребоваться разрешение офтальмолога. Важно заранее сообщить врачу об аллергии на местные анестетики и согласовать дату операции с учётом менструального цикла.",
+                    "Окончательное решение принимает врач после очной консультации и, при необходимости, заключений профильных специалистов."
+                  ]
+                },
+                {
+                  "question": "От чего зависит стоимость?",
+                  "answer": [
+                    "Азиатский или европейский тип век сам по себе не меняет стоимость. Точную сумму и необходимый объём вмешательства врач определяет после очного осмотра."
+                  ]
+                },
+                {
+                  "question": "Сколько длится восстановление?",
+                  "answer": [
+                    "Активный период восстановления обычно занимает около двух недель. Полное заживление индивидуально и может продолжаться несколько месяцев.",
+                    "Сроки возвращения к спорту, косметике, сауне и другим привычным активностям врач определяет персонально."
+                  ]
+                },
+                {
+                  "question": "Какая используется анестезия?",
+                  "answer": [
+                    "Блефаропластика проводится под местной анестезией, потому что во время операции врачу может быть необходимо попросить пациента открыть или закрыть глаза.",
+                    "Ориентировочная продолжительность операции составляет от полутора до двух часов. Точный план врач обсуждает на консультации."
+                  ]
+                }
+              ],
+              "fields": [
+                {
+                  "name": "question",
+                  "label": "Вопрос",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "answer",
+                  "label": "Абзацы ответа",
+                  "required": true,
+                  "widget": "list",
+                  "collapsed": true,
+                  "min": 1,
+                  "default": [
+                    "Можно записаться в лист ожидания. Если другой пациент отменит или перенесёт запись, администратор предложит ближайшее свободное окно.",
+                    "Онлайн-консультации по видеосвязи не проводятся. Пациентам из Бишкека и других регионов нужна очная консультация перед операцией."
+                  ],
+                  "field": {
+                    "name": "value",
+                    "label": "Текст",
+                    "widget": "text",
+                    "required": true,
+                    "pattern": [
+                      "\\S",
+                      "Текст не может быть пустым"
+                    ]
+                  }
+                }
+              ],
+              "summary": "{{fields.question}}"
+            }
+          ]
+        },
+        {
+          "name": "preparation",
+          "label": "Памятка перед операцией",
+          "file": "content/preparation.json",
+          "format": "json",
+          "preview_path": "/#faq",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "title",
+              "label": "Заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "description",
+              "label": "Описание",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "action",
+              "label": "Кнопка",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Подпись",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "href",
+                  "label": "Ссылка",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "^(https://[^\\s]+|/(?!/)[^\\s]*|#[a-zA-Z][\\w-]*)$",
+                    "Введите HTTPS-ссылку или путь на сайте"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "asideTitle",
+              "label": "Боковой заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "contact",
+          "label": "Запись на консультацию",
+          "file": "content/contact.json",
+          "format": "json",
+          "preview_path": "/#contacts",
+          "fields": [
+            {
+              "name": "eyebrow",
+              "label": "Надзаголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "title",
+              "label": "Заголовок",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "mobileTitleLines",
+              "label": "Строки заголовка на телефоне",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                "Начнём с личного",
+                "разговора"
+              ],
+              "max": 4,
+              "field": {
+                "name": "value",
+                "label": "Текст",
+                "widget": "string",
+                "required": true,
+                "pattern": [
+                  "\\S",
+                  "Текст не может быть пустым"
+                ]
+              }
+            },
+            {
+              "name": "description",
+              "label": "Описание",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "buttonLabel",
+              "label": "Подпись кнопки",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "whatsappText",
+              "label": "Готовое сообщение для WhatsApp",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "phoneLabel",
+              "label": "Подпись телефона",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "whatsappLabel",
+              "label": "Подпись WhatsApp",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "instagramLabel",
+              "label": "Подпись Instagram",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "administratorLabel",
+              "label": "Текст ссылки администратору",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "addressLabel",
+              "label": "Подпись адреса",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "mapLabel",
+              "label": "Подпись карты",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "clinic",
+              "label": "Название клиники",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "settings",
+      "label": "Настройки сайта",
+      "files": [
+        {
+          "name": "site",
+          "label": "Название, контакты и SEO",
+          "file": "content/site.json",
+          "format": "json",
+          "preview_path": "/",
+          "fields": [
+            {
+              "name": "name",
+              "label": "Имя",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "shortName",
+              "label": "Короткое имя",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "role",
+              "label": "Специализация",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "description",
+              "label": "Описание",
+              "required": true,
+              "widget": "text",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "url",
+              "label": "Основной адрес сайта",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Ссылка должна начинаться с https://"
+              ]
+            },
+            {
+              "name": "locale",
+              "label": "Локаль для SEO",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "phone",
+              "label": "Телефон",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "e164",
+                  "label": "Номер для звонка",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "^\\+[1-9]\\d{7,14}$",
+                    "Пример: +996700977277"
+                  ]
+                },
+                {
+                  "name": "display",
+                  "label": "Номер на сайте",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "whatsapp",
+              "label": "Ссылка WhatsApp",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Ссылка должна начинаться с https://"
+              ]
+            },
+            {
+              "name": "instagram",
+              "label": "Instagram",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Ссылка должна начинаться с https://"
+              ]
+            },
+            {
+              "name": "instagramHandle",
+              "label": "Имя профиля с @",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^@\\S+$",
+                "Пример: @dr.alybaev"
+              ]
+            },
+            {
+              "name": "address",
+              "label": "Адрес клиники",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "country",
+                  "label": "Код страны",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "city",
+                  "label": "Город",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "street",
+                  "label": "Улица и дом",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "full",
+                  "label": "Полный адрес",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "geo",
+              "label": "Координаты",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "lat",
+                  "label": "Широта",
+                  "required": true,
+                  "widget": "number",
+                  "value_type": "float",
+                  "min": -90,
+                  "max": 90
+                },
+                {
+                  "name": "lng",
+                  "label": "Долгота",
+                  "required": true,
+                  "widget": "number",
+                  "value_type": "float",
+                  "min": -180,
+                  "max": 180
+                }
+              ]
+            },
+            {
+              "name": "logo",
+              "label": "Логотип",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "src",
+                  "label": "Изображение",
+                  "required": true,
+                  "widget": "image",
+                  "hint": "Выберите фото из медиатеки или загрузите новое. JPG, PNG, WebP; для логотипа также SVG.",
+                  "pattern": [
+                    "^/images/[^?#]+$",
+                    "Выберите файл из медиатеки сайта"
+                  ]
+                },
+                {
+                  "name": "alt",
+                  "label": "Описание изображения",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "crop",
+                  "label": "Кадрировать оригинальный логотип",
+                  "required": true,
+                  "widget": "boolean",
+                  "default": true,
+                  "hint": "Включено для текущего квадратного SVG. Для нового логотипа без полей выключите кадрирование."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "navigation",
+          "label": "Меню и запись",
+          "file": "content/navigation.json",
+          "format": "json",
+          "preview_path": "/",
+          "fields": [
+            {
+              "name": "nav",
+              "label": "Пункты меню",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "id": "doctor",
+                  "label": "О враче",
+                  "href": "/#doctor"
+                },
+                {
+                  "id": "services",
+                  "label": "Направления",
+                  "href": "/#services"
+                },
+                {
+                  "id": "results",
+                  "label": "Результаты",
+                  "href": "/#results"
+                },
+                {
+                  "id": "reviews",
+                  "label": "Отзывы",
+                  "href": "/#reviews"
+                },
+                {
+                  "id": "education",
+                  "label": "Образование",
+                  "href": "/#education"
+                },
+                {
+                  "id": "recovery",
+                  "label": "Восстановление",
+                  "href": "/#recovery"
+                },
+                {
+                  "id": "faq",
+                  "label": "FAQ",
+                  "href": "/#faq"
+                },
+                {
+                  "id": "contacts",
+                  "label": "Контакты",
+                  "href": "/#contacts"
+                }
+              ],
+              "max": 8,
+              "fields": [
+                {
+                  "name": "id",
+                  "label": "Блок сайта",
+                  "required": true,
+                  "widget": "select",
+                  "options": [
+                    "doctor",
+                    "services",
+                    "results",
+                    "reviews",
+                    "education",
+                    "recovery",
+                    "faq",
+                    "contacts"
+                  ]
+                },
+                {
+                  "name": "label",
+                  "label": "Подпись",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "href",
+                  "label": "Ссылка",
+                  "required": true,
+                  "widget": "select",
+                  "options": [
+                    "/#doctor",
+                    "/#services",
+                    "/#results",
+                    "/#reviews",
+                    "/#education",
+                    "/#recovery",
+                    "/#faq",
+                    "/#contacts",
+                    "/#booking"
+                  ]
+                }
+              ],
+              "summary": "{{fields.label}}"
+            },
+            {
+              "name": "cta",
+              "label": "Кнопка записи",
+              "required": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Подпись",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "labelShort",
+                  "label": "Короткая подпись",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "href",
+                  "label": "Ссылка",
+                  "required": true,
+                  "widget": "select",
+                  "options": [
+                    "/#doctor",
+                    "/#services",
+                    "/#results",
+                    "/#reviews",
+                    "/#education",
+                    "/#recovery",
+                    "/#faq",
+                    "/#contacts",
+                    "/#booking"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "footer",
+          "label": "Подвал сайта",
+          "file": "content/footer.json",
+          "format": "json",
+          "preview_path": "/#contacts",
+          "fields": [
+            {
+              "name": "nav",
+              "label": "Пункты меню",
+              "required": true,
+              "widget": "list",
+              "collapsed": true,
+              "min": 1,
+              "default": [
+                {
+                  "label": "Услуги",
+                  "href": "/#services"
+                },
+                {
+                  "label": "Результаты",
+                  "href": "/#results"
+                },
+                {
+                  "label": "О враче",
+                  "href": "/#doctor"
+                },
+                {
+                  "label": "Сертификаты",
+                  "href": "/ser#main-content"
+                },
+                {
+                  "label": "Контакты",
+                  "href": "/#contacts"
+                }
+              ],
+              "fields": [
+                {
+                  "name": "label",
+                  "label": "Подпись",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "\\S",
+                    "Текст не может быть пустым"
+                  ]
+                },
+                {
+                  "name": "href",
+                  "label": "Ссылка",
+                  "required": true,
+                  "widget": "string",
+                  "pattern": [
+                    "^(https://[^\\s]+|/(?!/)[^\\s]*|#[a-zA-Z][\\w-]*)$",
+                    "Введите HTTPS-ссылку или путь на сайте"
+                  ]
+                }
+              ],
+              "summary": "{{fields.label}}"
+            },
+            {
+              "name": "creditLabel",
+              "label": "Подпись разработчика",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "creditName",
+              "label": "Имя разработчика",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "\\S",
+                "Текст не может быть пустым"
+              ]
+            },
+            {
+              "name": "creditUrl",
+              "label": "Сайт разработчика",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Ссылка должна начинаться с https://"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "links",
+          "label": "Видео и карты",
+          "file": "content/links.json",
+          "format": "json",
+          "preview_path": "/",
+          "fields": [
+            {
+              "name": "twoGis",
+              "label": "Карта",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Ссылка должна начинаться с https://"
+              ]
+            },
+            {
+              "name": "clinicTwoGis",
+              "label": "Страница клиники на карте",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Ссылка должна начинаться с https://"
+              ]
+            },
+            {
+              "name": "video",
+              "label": "Видео",
+              "required": true,
+              "widget": "string",
+              "pattern": [
+                "^https://[^\\s]+$",
+                "Ссылка должна начинаться с https://"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
